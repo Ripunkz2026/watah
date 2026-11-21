@@ -1,0 +1,186 @@
+/* Contact, sign-in, and registration share the landing page's brand and navigation. */
+.ep-page { padding-top: 30px; padding-bottom: 80px; }
+.ep-back { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; color: var(--lp-muted) !important; margin-bottom: 32px; }
+.ep-back:hover { color: var(--lp-blue) !important; }
+.ep-page h1 { font-size: clamp(44px, 5.2vw, 68px); font-weight: 800; line-height: 1.04; letter-spacing: -3px; }
+.ep-page h1 > span { color: var(--lp-blue); }
+.ep-page textarea { font: inherit; }
+.ep-page .ep-form { margin: 0; }
+.ep-field { margin-bottom: 21px; min-width: 0; }
+.ep-field label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 9px; }
+.ep-field label span { color: #758297; font-weight: 400; font-size: 10px; }
+.ep-field input, .ep-field select, .ep-field textarea { display: block; width: 100%; border: 1px solid #dbe3ef; border-radius: 7px; background: #fbfcfe; color: var(--lp-ink); padding: 14px 15px; font-size: 13px; line-height: 1.5; transition: border-color .15s, box-shadow .15s; }
+.ep-field input:focus, .ep-field select:focus, .ep-field textarea:focus { border-color: var(--lp-blue); box-shadow: 0 0 0 3px #175bea12; }
+.ep-field input::placeholder, .ep-field textarea::placeholder { color: #8492a5; }
+.ep-field textarea { resize: vertical; min-height: 140px; }
+.ep-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.ep-submit { width: 100%; margin-top: 4px; }
+.ep-submit:disabled { cursor: not-allowed; opacity: .6; }
+.ep-form-note { color: #6b7c92; font-size: 10px; line-height: 1.8; margin-top: 16px !important; }
+.ep-notice { font-size: 12px; line-height: 1.8; padding: 13px 16px; margin-bottom: 21px; border-radius: 7px; }
+.ep-error { background: #fff1f2; border: 1px solid #fecdd3; color: #a12540; }
+.ep-success { background: #edf9f4; border: 1px solid #bce5d4; color: #246d52; }
+
+/* Contact */
+.ep-contact-layout { display: grid; grid-template-columns: .95fr 1.05fr; gap: 100px; align-items: start; }
+.ep-contact-copy { padding-top: 23px; }
+.ep-contact-copy h1 { margin-top: 22px; }
+.ep-contact-intro { font-size: 15px; line-height: 1.85; color: var(--lp-muted); margin-top: 25px !important; max-width: 370px; }
+.ep-contact-details { margin-top: 34px; }
+.ep-contact-detail { display: flex; align-items: start; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--lp-line); }
+.ep-contact-detail:first-child { padding-top: 0; }
+.ep-detail-icon { display: grid; place-items: center; flex-shrink: 0; width: 40px; height: 40px; border: 1px solid #e0e9f9; background: #f0f5ff; color: var(--lp-blue); border-radius: 10px; }
+.ep-detail-icon svg { width: 21px; height: 21px; }
+.ep-contact-detail h2 { font-size: 12px; font-weight: 600; margin: 2px 0 7px; }
+.ep-contact-detail p { color: var(--lp-muted); font-size: 12px; line-height: 1.8; overflow-wrap: anywhere; }
+.ep-demo-contact { margin-top: 13px !important; font-size: 10px; color: #748297; line-height: 1.7; }
+.ep-contact-tip { border-left: 2px solid #91b5fb; padding-left: 17px; margin-top: 34px; }
+.ep-contact-tip .lp-eyebrow { font-size: 9px; letter-spacing: 1.1px; }
+.ep-contact-tip p { color: var(--lp-muted); font-size: 12px; line-height: 1.8; max-width: 330px; margin-top: 10px !important; }
+.ep-contact-panel { background: white; padding: 36px; border: 1px solid var(--lp-line); border-radius: 16px; box-shadow: 0 14px 45px #123e9b08; }
+.ep-panel-heading { position: relative; margin-bottom: 29px; padding-top: 2px; }
+.ep-panel-heading .lp-eyebrow { font-size: 9px; letter-spacing: 1.4px; margin-right: 40px; }
+.ep-panel-heading h2 { font-size: 26px; letter-spacing: -1px; line-height: 1.2; margin-top: 14px; }
+.ep-panel-heading > p:last-child { font-size: 12px; color: var(--lp-muted); line-height: 1.8; margin-top: 11px; }
+.ep-form-symbol { position: absolute; top: -5px; right: 0; background: #edf3ff; color: var(--lp-blue); border-radius: 50%; width: 32px; height: 32px; display: grid; place-items: center; font-size: 20px; }
+.ep-message-preview { margin-top: 26px; border-top: 1px solid var(--lp-line); padding-top: 25px; scroll-margin-top: 110px; }
+.ep-message-preview h3 { font-size: 19px; margin-top: 9px; letter-spacing: -.5px; }
+.ep-message-preview dl { font-size: 12px; line-height: 1.8; }
+.ep-message-preview dt { color: var(--lp-ink); font-weight: 600; margin-top: 15px; }
+.ep-message-preview dd { margin: 3px 0 0; color: var(--lp-muted); overflow-wrap: anywhere; white-space: pre-wrap; }
+.ep-help-links { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 32px; padding: 34px 0 0; border-top: 1px solid var(--lp-line); margin-top: 64px; align-items: center; }
+.ep-help-links h2 { font-size: 20px; line-height: 1.3; letter-spacing: -.6px; margin-top: 10px; max-width: 240px; }
+.ep-help-links > a { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px; background: #f3f7ff; border-radius: 10px; font-size: 12px; font-weight: 600; }
+.ep-help-links > a:hover { background: #eaf1ff; }
+.ep-help-links small { display: block; font-size: 10px; color: var(--lp-muted); font-weight: 400; line-height: 1.7; margin-top: 7px; }
+.ep-help-links > a > span:last-child { font-size: 23px; color: var(--lp-blue); }
+
+/* Customer and administrator sign-in */
+.ep-login-layout { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--lp-line); border-radius: 18px; overflow: hidden; }
+.ep-login-story { padding: 42px; background: #edf3ff; min-width: 0; }
+.ep-login-story > .lp-eyebrow { font-size: 9px; letter-spacing: 1.5px; }
+.ep-login-story h2 { font-size: clamp(30px, 3.2vw, 43px); line-height: 1.1; letter-spacing: -1.8px; font-weight: 700; margin-top: 23px; }
+.ep-login-story h2 span { color: var(--lp-blue); }
+.ep-login-story > p:not(.lp-eyebrow) { color: #5d7292; font-size: 13px; line-height: 1.85; max-width: 360px; margin-top: 20px; }
+.ep-login-image { margin-top: 27px; border: 1px solid #d5e2fa; padding: 18px 22px; border-radius: 13px; background: #e6efff; }
+.ep-image-label { font-size: 8px; letter-spacing: 1.5px; color: #56729d; font-weight: 600; }
+.ep-login-image img { width: 100%; height: 230px; object-fit: contain; mix-blend-mode: multiply; margin: 10px auto 12px; }
+.ep-login-image > div { border-top: 1px solid #ccdbf4; padding-top: 13px; }
+.ep-login-image > div > span { display: block; font-size: 10px; color: #56729d; }
+.ep-login-image strong { display: block; font-size: 18px; letter-spacing: -.5px; margin-top: 5px; }
+.ep-story-note { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; color: #56729d; font-size: 10px; margin-top: 23px; }
+.ep-story-note > span:first-child { color: #268567; }
+.ep-login-panel { padding: 45px; display: flex; align-items: center; min-width: 0; }
+.ep-login-panel-inner { width: 100%; max-width: 365px; margin: auto; }
+.ep-login-panel h1 { font-size: 43px; letter-spacing: -1.8px; margin-top: 17px; }
+.ep-intro { font-size: 12px; color: var(--lp-muted); line-height: 1.8; margin-top: 16px !important; }
+.ep-account-type { display: flex; gap: 5px; padding: 5px; border-radius: 8px; background: #f0f3f8; margin: 26px 0; }
+.ep-account-type a { flex: 1; text-align: center; font-size: 12px; font-weight: 600; color: #65748b; padding: 12px; border-radius: 5px; }
+.ep-account-type a[aria-current=page] { background: white; color: var(--lp-blue); box-shadow: 0 2px 6px #1226400c; }
+.ep-account-type a:hover { color: var(--lp-blue); }
+.ep-password-field { position: relative; }
+.ep-password-field input { padding-right: 67px; }
+.ep-password-field button { position: absolute; right: 5px; top: 5px; bottom: 5px; padding: 0 12px; background: transparent; color: var(--lp-blue); font-size: 11px; font-weight: 600; border-radius: 4px; }
+.ep-password-field button:hover { background: #edf3ff; }
+.ep-register-link { text-align: center; color: var(--lp-muted); font-size: 11px; line-height: 1.9; margin-top: 23px !important; }
+.ep-register-link a { color: var(--lp-blue); font-weight: 600; }
+.ep-register-link a > span { margin-left: 6px; }
+.ep-login-help { border-top: 1px solid var(--lp-line); text-align: center; margin-top: 24px; padding-top: 20px; font-size: 10px; line-height: 1.8; color: var(--lp-muted); }
+.ep-login-help a { color: var(--lp-blue); font-weight: 600; }
+
+/* Business and administrator registration. */
+.ep-register-layout { grid-template-columns: .95fr 1.05fr; }
+.ep-register-story { display: flex; flex-direction: column; }
+.ep-register-story h2 { font-size: clamp(32px, 3.3vw, 45px); }
+.ep-register-story > p:not(.lp-eyebrow) { max-width: 390px; }
+.ep-register-image { margin-top: 32px; }
+.ep-register-image img { height: 280px; }
+.ep-register-benefits { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 17px; }
+.ep-register-benefits li { display: flex; align-items: flex-start; gap: 11px; color: #45618a; font-size: 12px; line-height: 1.7; }
+.ep-register-benefits li > span { display: grid; place-items: center; width: 21px; height: 21px; flex-shrink: 0; background: #dce9ff; border-radius: 50%; color: var(--lp-blue); font-size: 10px; }
+.ep-register-story > .ep-register-story-note { margin-top: auto !important; padding-top: 34px; font-size: 8px !important; font-weight: 600; letter-spacing: 1.5px; }
+.ep-register-panel { padding: 40px; }
+.ep-register-panel .ep-login-panel-inner { max-width: 440px; }
+.ep-register-panel h1 { font-size: clamp(33px, 3.3vw, 43px); }
+.ep-register-form { padding-top: 25px; }
+.ep-register-form .ep-field { margin-bottom: 18px; }
+.ep-register-form .ep-field-row { gap: 15px; }
+.ep-password-help { color: var(--lp-muted); font-size: 10px; line-height: 1.7; margin-top: 8px !important; }
+.ep-terms-check { display: flex; align-items: flex-start; gap: 10px; margin: 22px 0; }
+.ep-terms-check input { width: 17px; height: 17px; flex-shrink: 0; margin: 2px 0 0; accent-color: var(--lp-blue); }
+.ep-terms-check label { font-size: 11px; line-height: 1.9; color: var(--lp-muted); cursor: pointer; }
+.ep-terms-check a { color: var(--lp-blue); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.ep-register-errors { margin-top: 22px; margin-bottom: 0; }
+.ep-register-errors ul { padding-left: 18px; margin: 8px 0 0; }
+.ep-register-admin-note { margin: 20px 0 0; background: #f2f6ff; border: 1px solid #dce8ff; color: #45618a; font-size: 11px; }
+.ep-register .ep-register-link { display: flex; flex-wrap: wrap; justify-content: center; gap: 5px; }
+@media (max-width: 1000px) {
+    .ep-register-panel { padding: 30px; }
+    .ep-register-form .ep-field-row { grid-template-columns: 1fr; gap: 0; }
+    .ep-register-image img { height: 240px; }
+}
+@media (max-width: 700px) {
+    .ep-register-layout { grid-template-columns: 1fr; border: 0; border-radius: 0; overflow: visible; }
+    .ep-register-panel { order: -1; padding: 28px 24px; border: 1px solid var(--lp-line); border-radius: 12px; }
+    .ep-register-panel .ep-login-panel-inner { max-width: none; }
+    .ep-register-panel h1 { font-size: clamp(30px, 6vw, 40px); letter-spacing: -1.5px; }
+    .ep-register-story { margin-top: 24px; border-radius: 12px; padding: 28px 24px; }
+    .ep-register-story h2 { font-size: 32px; }
+    .ep-register .ep-register-image img { height: 250px; }
+    .ep-register .ep-register-form input { font-size: 16px; }
+    .ep-register-story > .ep-register-story-note { padding-top: 25px; }
+}
+
+@media (max-width: 1100px) {
+    .ep-contact-layout { gap: 55px; }
+    .ep-contact-panel { padding: 30px; }
+    .ep-login-story { padding: 32px; }
+    .ep-login-panel { padding: 32px; }
+    .ep-help-links { gap: 20px; }
+    .ep-help-links > a { padding: 18px; }
+}
+@media (max-width: 850px) {
+    .ep-contact-layout { grid-template-columns: .9fr 1.1fr; gap: 30px; }
+    .ep-contact-copy h1 { font-size: 54px; }
+    .ep-contact-intro { font-size: 13px; }
+    .ep-contact-panel { padding: 26px; }
+    .ep-field-row { grid-template-columns: 1fr; gap: 0; }
+    .ep-panel-heading h2 { font-size: 24px; }
+    .ep-help-links { grid-template-columns: 1fr 1fr; }
+    .ep-help-links > div { grid-column: 1 / -1; }
+    .ep-help-links h2 { max-width: none; }
+    .ep-login-story { padding: 28px; }
+    .ep-login-panel { padding: 28px; }
+    .ep-login-panel h1 { font-size: 36px; }
+    .ep-login-story h2 { font-size: 32px; }
+    .ep-login-image img { height: 210px; }
+    .ep-story-note { font-size: 9px; }
+}
+@media (max-width: 640px) {
+    .ep-page { padding-top: 24px; padding-bottom: 48px; }
+    .ep-back { margin-bottom: 28px; }
+    .ep-contact-layout { grid-template-columns: 1fr; gap: 34px; }
+    .ep-contact-copy { padding-top: 0; }
+    .ep-contact-copy h1 { font-size: 57px; letter-spacing: -2.8px; margin-top: 17px; }
+    .ep-contact-intro { font-size: 14px; max-width: none; margin-top: 20px !important; }
+    .ep-contact-details { margin-top: 27px; }
+    .ep-contact-detail { padding-block: 16px; }
+    .ep-contact-tip { margin-top: 25px; }
+    .ep-contact-panel { padding: 26px 22px; border-radius: 12px; }
+    .ep-field input, .ep-field select, .ep-field textarea { font-size: 16px; padding: 12px; }
+    .ep-field label { font-size: 12px; }
+    .ep-help-links { grid-template-columns: 1fr; gap: 16px; margin-top: 40px; padding-top: 28px; }
+    .ep-help-links > div { margin-bottom: 8px; }
+    .ep-login-layout { grid-template-columns: 1fr; border: 0; border-radius: 0; overflow: visible; }
+    .ep-login-panel { order: -1; padding: 28px 22px; border: 1px solid var(--lp-line); border-radius: 12px; }
+    .ep-login-panel h1 { font-size: 42px; }
+    .ep-login-panel-inner { max-width: none; }
+    .ep-account-type { margin-block: 24px; }
+    .ep-login-story { margin-top: 24px; border-radius: 12px; padding: 28px 24px; }
+    .ep-login-story h2 { font-size: 32px; margin-top: 16px; }
+    .ep-login-story > p:not(.lp-eyebrow) { margin-top: 16px; max-width: none; }
+    .ep-login-image { margin-top: 22px; }
+    .ep-login-image img { height: 210px; }
+    .ep-login-image strong { font-size: 17px; }
+    .ep-story-note { font-size: 9px; margin-top: 18px; }
+}

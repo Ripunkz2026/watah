@@ -1,0 +1,241 @@
+/* Shared Aqua Dash palette, loaded after the page-specific styles. */
+:root {
+    --aqua-blue: #0077b6;
+    --aqua-deep: #00558a;
+    --aqua-cyan: #00b5e2;
+    --aqua-red: #d71920;
+    --aqua-red-hover: #b80f18;
+    --aqua-ink: #123349;
+    --aqua-muted: #526c7c;
+    --aqua-line: #d3e6ef;
+    --aqua-soft: #edf8fc;
+    --aqua-tint: #def2fa;
+    --aqua-surface: #f7fbfd;
+    --aqua-dark-gradient: linear-gradient(125deg, #004d7d, #0077b6);
+}
+body.page-shell {
+    color: var(--aqua-ink);
+    background: #fff;
+}
+body.landing-page {
+    --lp-blue: var(--aqua-blue);
+    --lp-ink: var(--aqua-ink);
+    --lp-muted: var(--aqua-muted);
+    --lp-line: var(--aqua-line);
+}
+body ::selection { background: #c5edf9; color: #123349; }
+.landing-page :focus-visible {
+    outline: 3px solid var(--aqua-blue);
+    outline-offset: 4px;
+}
+.lp-announcement {
+    background: var(--aqua-dark-gradient);
+    border-bottom: 3px solid var(--aqua-red);
+}
+.lp-header { border-bottom-color: var(--aqua-line); }
+.landing h1 > span { color: var(--aqua-red); }
+/* Show the truck artwork without the asset's large transparent margins. */
+.landing h1.lp-hero-art {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    aspect-ratio: 1000 / 480;
+    margin-top: 24px;
+    overflow: hidden;
+}
+.landing .lp-hero-art img {
+    position: absolute;
+    width: 124%;
+    max-width: none;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.landing-page .lp-button-primary, .auth-submit {
+    background: var(--aqua-red);
+    color: #fff;
+    box-shadow: 0 4px 12px #d719201a;
+}
+.landing-page .lp-button-primary:hover, .auth-submit:hover {
+    background: var(--aqua-red-hover);
+}
+.landing-page .lp-button-primary:disabled {
+    background: #738792;
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
+.landing-page .lp-button-light {
+    color: var(--aqua-deep);
+    border-color: var(--aqua-line);
+}
+.landing-page .lp-button-light:hover { background: var(--aqua-tint); }
+.lp-cart > span {
+    color: #fff;
+    background: var(--aqua-red);
+}
+.lp-desktop-nav a:hover, .lp-sign-in:hover, .lp-text-link:hover,
+.lp-footer-grid > div:not(:first-child) > a:hover {
+    color: var(--aqua-red);
+}
+.ad-nav [aria-current] {
+    color: var(--aqua-blue);
+    box-shadow: 0 2px var(--aqua-red);
+}
+.lp-showcase, .pd-gallery, .ep-login-story, .cx-restock {
+    background: linear-gradient(145deg, var(--aqua-soft), var(--aqua-tint));
+    border-color: var(--aqua-line);
+}
+.lp-showcase-circle, .pd-image-stage::before, .ep-login-image {
+    background: #d3eff9;
+    border-color: #b8deef;
+}
+.lp-showcase-circle::after, .lp-showcase-bottom, .pd-gallery-caption,
+.ep-login-image > div { border-color: #b8deef; }
+.lp-showcase-top, .lp-mini-label, .lp-small-pill, .pd-pill,
+.pd-gallery-heading .lp-eyebrow, .pd-gallery-caption > span,
+.ep-image-label, .ep-login-image > div > span, .ep-story-note {
+    color: #42687e;
+}
+.lp-small-pill, .pd-pill { border-color: #b8deef; }
+.lp-how-section, .lp-brand-strip, .lp-product-image, .cx-summary,
+.cx-cart-image, .cx-filter-bar, .ad-team, .ad-table th, .ad-product-image {
+    background: var(--aqua-surface);
+    border-color: var(--aqua-line);
+}
+#how-it-works {
+    background-color: #003957;
+    background-image:
+        linear-gradient(90deg, rgba(0, 35, 57, .86), rgba(0, 45, 73, .78)),
+        url('../images/Aqua%20Dash%20Water%20Delivery%20Display.png');
+    background-size: cover;
+    background-position: center, center 58%;
+    background-repeat: no-repeat;
+    color: #fff;
+    border-color: #00558a;
+}
+#how-it-works .lp-eyebrow, #how-it-works .lp-steps p { color: #effbff; }
+#how-it-works .lp-steps li { border-color: #ffffff40; }
+#how-it-works .lp-step-number { background: var(--aqua-red); color: #fff; }
+#how-it-works .lp-text-link { color: #fff; }
+#how-it-works .lp-text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+#how-it-works :focus-visible { outline-color: #fff; }
+@media (max-width: 640px) {
+    #how-it-works {
+        background-image:
+            linear-gradient(180deg, rgba(0, 35, 57, .8), rgba(0, 45, 73, .86) 380px, #003957 540px),
+            url('../images/Aqua%20Dash%20Water%20Delivery%20Display.png');
+        background-size: 100% 100%, auto 540px;
+        background-position: center, center top;
+    }
+}
+.lp-final-cta {
+    background: linear-gradient(110deg, var(--aqua-tint), #f7fcfe);
+    border-color: var(--aqua-line);
+}
+.lp-footer { background: var(--aqua-surface); border-top: 1px solid var(--aqua-line); }
+.lp-footer-grid h3 { color: var(--aqua-deep); }
+.lp-footer-bottom { color: var(--aqua-muted); }
+.lp-delivery, .ad-territory, .pd-help, .cx-dark, .auth-story {
+    background: var(--aqua-dark-gradient);
+    color: #fff;
+    border-color: var(--aqua-deep);
+}
+#delivery .lp-delivery {
+    background-color: #003957;
+    background-image:
+        linear-gradient(90deg, rgba(0, 35, 57, .88), rgba(0, 45, 73, .72) 52%, rgba(0, 45, 73, .3)),
+        url('../images/Aqua%20Dash%20Branded%20Delivery%20Truck.png');
+    background-size: cover;
+    background-position: center, center 55%;
+    background-repeat: no-repeat;
+}
+#delivery .lp-delivery-form { box-shadow: 0 16px 40px #001e3340; }
+@media (max-width: 640px) {
+    #delivery .lp-delivery {
+        background-image:
+            linear-gradient(180deg, rgba(0, 35, 57, .78), rgba(0, 45, 73, .82) 380px, #003957 490px),
+            url('../images/Aqua%20Dash%20Branded%20Delivery%20Truck.png');
+        background-size: 100% 100%, auto 490px;
+        background-position: center, center top;
+    }
+}
+.lp-delivery-copy .lp-eyebrow, .lp-delivery-copy > p:not(.lp-eyebrow),
+.ad-territory .lp-eyebrow, .ad-territory-top > span, .ad-territory > p,
+.ad-territory dt, .pd-help .lp-eyebrow, .pd-help > p:not(.lp-eyebrow),
+.cx-dark .cx-note, .cx-dark dt, .cx-dark .lp-eyebrow,
+.auth-story p, .auth-story .auth-eyebrow { color: #effbff; }
+.lp-delivery :focus-visible, .ad-territory :focus-visible,
+.pd-help :focus-visible, .cx-dark :focus-visible {
+    outline-color: #fff;
+}
+.lp-step-number, .pd-highlights li > span, .ep-detail-icon,
+.ep-register-benefits li > span, .cx-avatar, .cx-empty-icon,
+.ad-team-icon, .ad-stat:first-child {
+    background: var(--aqua-tint);
+    border-color: #b8deef;
+    color: var(--aqua-deep);
+}
+.lp-product-link, .pd-variants a, .cx-button-secondary {
+    border-color: var(--aqua-line);
+}
+.lp-product-link:hover, .pd-variants a:hover, .pd-variants a[aria-current],
+.cx-account-nav a[aria-current=page], .cx-account-nav a:hover,
+.ep-help-links > a, .ep-password-field button:hover, .cx-freight-note,
+.landing-page .ad-signout:hover {
+    background: var(--aqua-soft);
+}
+.ep-help-links > a:hover { background: var(--aqua-tint); }
+.cx-freight-note { border-color: var(--aqua-line); }
+.ep-login-story > p:not(.lp-eyebrow), .ep-register-benefits li {
+    color: var(--aqua-muted);
+}
+.cx-alert:not(.cx-alert-error) {
+    background: var(--aqua-soft);
+    border-color: #b8deef;
+    color: var(--aqua-deep);
+}
+.cx-badge:not(.cx-badge-success):not(.cx-badge-wait) {
+    background: var(--aqua-tint);
+    color: var(--aqua-deep);
+}
+.ep-field input, .ep-field select, .ep-field textarea,
+.cx-field input, .cx-field select, .cx-field textarea, .cx-quantity select,
+.pd-order-actions select {
+    background: #fbfdfe;
+    border-color: #c2dbe7;
+}
+.ep-field input:focus, .ep-field select:focus, .ep-field textarea:focus,
+.cx-field input:focus, .cx-field select:focus, .cx-field textarea:focus,
+.cx-quantity select:focus, .pd-order-actions select:focus {
+    border-color: var(--aqua-blue);
+    box-shadow: 0 0 0 3px #0077b61a;
+}
+.ep-terms-check input, .terms-check input { accent-color: var(--aqua-blue); }
+
+/* Frame the supplied logo's transparent margins without changing the asset. */
+.brand-logo {
+    display: block;
+    position: relative;
+    flex-shrink: 0;
+    width: 124px;
+    height: 82px;
+    overflow: hidden;
+}
+.brand-logo > img {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 196px;
+    max-width: none;
+    height: auto;
+    transform: translate(-50%, -50%);
+}
+.lp-footer .brand-logo { width: 164px; height: 112px; }
+.lp-footer .brand-logo > img { width: 260px; }
+@media (max-width: 640px) {
+    .lp-header .brand-logo { width: 104px; height: 66px; }
+    .lp-header .brand-logo > img { width: 158px; }
+}

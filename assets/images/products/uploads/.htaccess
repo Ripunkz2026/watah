@@ -1,0 +1,8 @@
+Options -Indexes
+SetHandler default-handler
+<FilesMatch "^(?![a-f0-9]{32}\.(jpg|png|webp|gif)$)">
+    Require all denied
+</FilesMatch>
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+</IfModule>

@@ -1,0 +1,7 @@
+<footer class="lp-footer"><div class="lp-wrap">
+    <div class="lp-footer-grid"><div class="lp-footer-about"><a class="lp-logo" href="<?php echo siteUrl('index.php'); ?>"><?php require APP_ROOT . '/app/views/layouts/brand-logo.php'; ?></a><p>Everyday hydration. Business-sized supply.<br>Water and sports drinks by the pallet.</p></div>
+        <div><h3>Stock up</h3><a href="<?php echo siteUrl('shop.php'); ?>">All products</a><a href="<?php echo siteUrl('service-area.php'); ?>">Delivery areas</a><a href="<?php echo siteUrl('freight-quote.php'); ?>">Freight quotes</a></div>
+        <div><h3>We&rsquo;re here to help</h3><a href="<?php echo siteUrl('account.php'); ?>">My account</a><a href="<?php echo siteUrl('contact.php'); ?>">Contact us</a><a href="<?php echo siteUrl('faq.php'); ?>">Frequently asked questions</a><a href="<?php echo siteUrl('order-status.php'); ?>">Order status</a></div>
+        <div><h3>The details</h3><a href="<?php echo siteUrl('shipping-policy.php'); ?>">Shipping &amp; delivery</a><a href="<?php echo siteUrl('refund-policy.php'); ?>">Refunds &amp; cancellations</a><a href="<?php echo siteUrl('privacy-policy.php'); ?>">Privacy policy</a><a href="<?php echo siteUrl('terms.php'); ?>">Terms of service</a></div>
+    </div><div class="lp-footer-bottom"><p>&copy; <?php echo date('Y'); ?> Aqua Dash. All rights reserved.</p><p>Demo storefront for client presentation.</p></div>
+</div></footer>

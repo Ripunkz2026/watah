@@ -1,126 +1,103 @@
-# Pure Life Wholesale Demo (Phase 1)
+# Water Pallets Express
 
-This repository is a PHP + Tailwind demo storefront for a wholesale bottled water business. It is designed for a client-facing mockup first, with MySQL-ready configuration and a clear path toward more advanced features in later phases.
+A plain PHP storefront running on XAMPP. Existing page URLs remain unchanged,
+including `http://localhost/watah/`, `shop.php`, and `admin-index.php`.
 
-## Project purpose
-
-- Build a polished storefront for full-pallet bottled water sales
-- Show approved service area restrictions for selected U.S. states
-- Present product catalog and cart flow for client review
-- Keep the implementation compatible with XAMPP + PHP + MySQL
-- Lay the foundation for future checkout, admin, and payment features
-
-## Stack
-
-- PHP 8+
-- XAMPP local server
-- Tailwind CSS via CDN for frontend styling
-- MySQL-ready PDO connection file
-- PHP sessions for demo cart handling
-
-## Phase structure
-
-### Phase 1 (current)
-
-- Home page
-- Shop page
-- Product detail page
-- Service area checker
-- Cart page
-- Checkout flow with freight quote logic
-- Order status page
-- Customer login and account page
-- Customer dashboard mockup
-- FAQ and policy pages
-- Admin dashboard and territory pages
-- Admin login mockup
-
-### Next phases
-
-- real MySQL database schema
-- product management admin
-- order processing and freight quote approval
-- Stripe payment integration
-- real authentication and authorization
-- deployment and production hardening
-
-## Local setup
-
-### Option 1: XAMPP (recommended for demo)
-
-1. Place this project in your XAMPP document root, for example:
-   `C:\xampp\htdocs\watah`
-2. Start Apache and MySQL in XAMPP.
-3. Open the browser and visit:
-   `http://localhost/watah/index.php`
-4. For admin demo pages, visit:
-   `http://localhost/watah/admin/index.php`
-
-### Option 2: PHP built-in server
-
-Run the following from the project root:
-
-```powershell
-C:\xampp\php\php.exe -S localhost:8000 -t "C:/xampp/htdocs/watah"
-```
-
-Then open:
+## Project layout
 
 ```text
-http://localhost:8000/index.php
+watah/
+├── index.php, shop.php, ...   Public entry files; keep these URLs stable
+├── app/
+│   ├── bootstrap.php         Starts the session and loads configuration/helpers
+│   ├── auth/                 Authentication helpers and administrator guard
+│   ├── data/products.php     Current product catalog
+│   ├── pages/
+│   │   ├── storefront/       Landing, shop, product, cart, checkout
+│   │   ├── account/          Login, registration, logout, account, customer dashboard
+│   │   ├── admin/            Administrator pages and authentication entry files
+│   │   ├── delivery/         Service area, freight quote, order status
+│   │   └── information/      Contact, FAQs, policies, terms
+│   ├── support/helpers.php  URL, price, cart, and shipping helpers
+│   └── views/layouts/       Shared headers and footers
+├── assets/
+│   ├── css/                 Landing, Express page, and authentication styles
+│   ├── js/                  Shared, landing, and contact scripts
+│   └── images/
+│       └── products/        Catalog photography
+├── config/
+│   ├── app.php              Application name and base URL
+│   ├── database.php         PDO connection using DB_* environment variables
+│   └── shipping.php         Allowed states, minimum orders, ZIP restrictions
+├── database/schema.sql     Dashboard database schema
+└── README.md
 ```
 
-## MySQL notes
+## Run locally
 
-The project includes `db.php` with a PDO connection to MySQL using environment variables. For the current client demo, the storefront is primarily powered by mock product data and PHP sessions until the database schema is implemented.
+1. Keep this directory at `C:\xampp\htdocs\watah`.
+2. Start Apache and MySQL in the XAMPP control panel.
+3. Run `C:\xampp\php\php.exe database/migrate.php` to create or upgrade the database.
+   Existing accounts and records are preserved; initial catalog and delivery rules are seeded.
+4. Open `http://localhost/watah/`.
 
-Create a database and configure environment variables in your OS or php.ini if you want to connect later:
+Database configuration reads `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, and
+`DB_PASS` from the environment, with the existing local XAMPP defaults as fallbacks.
+If the application folder changes, update `APP_BASE_URL` in `config/app.php`.
+No new Apache document-root setting or URL rewrite rule is needed.
 
-```bash
-DB_HOST=127.0.0.1
-DB_NAME=pure_life_demo
-DB_USER=root
-DB_PASS=
-```
+## Where to make changes
 
-## Files to review
+- **Landing page:** `app/pages/storefront/index.php`, `assets/css/landing.css`,
+  and `assets/js/landing.js`.
+- **Product data:** admin Products for adding products and updating prices and inventory;
+  `app/data/products.php` reads MySQL. Choose **Add product**, enter a unique SKU,
+  product details, price, and stock, then save to make the product visible in the shop.
+  Choose a JPG, PNG, WebP, or GIF image from your computer (up to 2 MB), or use an
+  HTTP/HTTPS URL or an existing path such as `images/products/1.jpg` relative to `assets/`.
+  Uploaded images are saved in `assets/images/products/uploads/`; this directory must
+  be writable by PHP. Preserve its `.htaccess` rules when deploying on Apache.
+  Total bottles per pallet is calculated from bottles per case
+  and cases per pallet.
+- **Navigation/footer:** `app/views/layouts/`.
+- **Customer pages:** `assets/css/customer.css` shares the landing page's design
+  tokens and components. Account and dashboard pages use
+  `app/views/layouts/customer-account.php`; shop, cart, checkout, delivery, and
+  help pages use the same Express header and footer.
+- **Delivery rules:** admin Delivery areas; `config/shipping.php` reads saved rules.
+- **Authentication:** `app/auth/` and `app/pages/account/`. Customers and admins
+  use `login.php`; valid credentials open the matching dashboard. The old
+  `admin-login.php` URL redirects to this shared page. If both account types
+  have the same email and password, the administrator account takes precedence.
 
-- `index.php` — storefront home page
-- `shop.php` — catalog and product ordering
-- `product.php` — product detail page
-- `service-area.php` — territory validation demo
-- `cart.php` — cart and pricing summary
-- `checkout.php` — checkout and freight quote flow
-- `order-status.php` — tracking and order status timeline
-- `freight-quote.php` — freight quote request and approval mockup
-- `account.php` — customer account and order history
-- `admin/index.php` — administration mockup
-- `admin/states.php` — state and ZIP eligibility view
-- `admin/products.php` — product and inventory views
-- `admin/orders.php` — order management view
-- `db.php` — MySQL connection placeholder
+Root PHP files are small entry points. Edit their matching files under
+`app/pages/` for page behavior and markup. Each entry point loads
+`app/bootstrap.php` before the page; use `APP_ROOT` for filesystem includes.
 
-## Verification
+Use `siteUrl('shop.php')` for page links and
+`assetUrl('images/products/3.jpg')` for public assets. `assetUrl()` adds the
+`/assets/` prefix. Old asset paths have moved; application references have
+been updated to their new locations.
 
-The project was verified using the local XAMPP PHP runtime and a live PHP development server.
+The `app/`, `config/`, and `database/` folders deny direct HTTP access through
+Apache `.htaccess` files. PHP filesystem includes continue to work. Preserve
+equivalent access rules if hosting on another server.
 
-### Syntax validation
+## Current scope
+
+Accounts, products, delivery rules, orders, order items, freight quotes, and status
+history are stored in MySQL. Checkout saves orders transactionally. Customers see
+only their own orders; admins manage freight, fulfillment, stock, and delivery
+rules. Cart contents remain in the session.
+
+Payments and freight are handled manually; the contact form still previews
+messages without sending them. Setup, table relationships, workflow, and isolated
+integration tests are documented in [database/README.md](database/README.md).
+
+## PHP syntax check (PowerShell)
 
 ```powershell
-C:\xampp\php\php.exe -l "C:/xampp/htdocs/watah/index.php"
-C:\xampp\php\php.exe -l "C:/xampp/htdocs/watah/shop.php"
-C:\xampp\php\php.exe -l "C:/xampp/htdocs/watah/admin/index.php"
+Get-ChildItem -Recurse -Filter *.php | ForEach-Object {
+    & C:\xampp\php\php.exe -l $_.FullName
+}
 ```
-
-### Live server verification
-
-```powershell
-C:\xampp\php\php.exe -S localhost:8000 -t "C:/xampp/htdocs/watah"
-Invoke-WebRequest -Uri "http://localhost:8000/index.php" -UseBasicParsing
-```
-
-Expected result: HTTP status `200` and page title `Pure Life Wholesale | Wholesale Pallet Store`.
-
-## Important note
-
-This is a presentation-first demo and is not production-ready. It is meant for client review and design validation before moving into stricter shipping, payment, and compliance workflows.
